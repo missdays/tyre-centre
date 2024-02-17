@@ -1,4 +1,5 @@
 {% extends "base.html" %} {% block content %}
+{% load static %}
 
 <!-- index.html content starts here -->
 
@@ -29,12 +30,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 services">
-                <img src="assets/images/accident-repair-img.png" class="services-img" />
+                <img src="{% static 'img/accident-repair-img.png' %}" class="services-img" />
                 <h2><strong>Accident repairs</strong></h2>
                 <p>We fix, restore, and maintain damaged vehicles.</p>
             </div>
             <div class="col-md-4 services">
-                <img src="assets/images/classic-car-img.png" class="services-img" />
+                <img src="{% static 'img/classic-car-img.png' %}" class="services-img" />
                 <h2><strong>Classic car restoration</strong></h2>
                 <p>
                     We restore and engineer cars from different eras for today and the
@@ -42,7 +43,7 @@
                 </p>
             </div>
             <div class="col-md-4 services">
-                <img src="assets/images/home-repair-img.png" class="services-img" />
+                <img src="{% static 'img/home-repair-img.png' %}" class="services-img" />
                 <h2><strong>Home repair visits</strong></h2>
                 <p>
                     Professional services delivered directly to your doorstep, minimising
