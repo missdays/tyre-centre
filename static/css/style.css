@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,700;1,1000&family=Playfair+Display&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Playfair Display' !important;
+    background-color: beige !important;
+}
+
+#nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar {
+    background-image: linear-gradient(to right, #0e0e2d, #1b1b63);
+    padding: 0 !important;
+}
+
+.navbar-title {
+    color: beige;
+    margin-left: 5px;
+}
+
+.navbar-title strong {
+    font-weight: bold;
+}
+
+.mechanic-girl-icon img {
+    width: auto;
+    max-height: 80px;
+    padding-left: 5px;
+}
+
+.navbar-nav li {
+    padding: 0 10px;
+}
+
+.navbar-nav li a {
+    color: beige !important;
+    font-weight: 600;
+    float: right;
+    text-align: left;
+}
+
+.fa-bars {
+    color: beige;
+    font-size: 30px !important;
+    padding-left: 2px;
+}
+
+.navbar-toggler {
+    outline: none !important;
+}
+
+/*-----home section-----*/
+
+.title-h {
+    text-align: center;
+}
+
+.title-h h1,
+.title-h h2 {
+    margin-bottom: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.content-center {
+    text-align: center;
+}
+
+.mecha-img {
+    width: 100%;
+    height: auto;
+    margin-top: 30px;
+    display: inline-block;
+    filter: grayscale(20%);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+}
+
+/*-----services section-----*/
+.services {
+    padding: 20px;
+}
+
+.services-heading {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.alert {
+    color: red !important;
+    font-size: 30px !important;
+    margin-top: 30px;
+}
+
+.services-img {
+    display: block;
+    width: 30%;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 40px;
+
+}
+
+.services p {
+    font-size: 22px;
+}
+
+/*-----booking section-----*/
+.booking {
+    padding: 20px;
+}
+
+.booking-heading {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+
+.book-now-btn {
+    background-color: #0e0e2d;
+    color: beige;
+    border: 2px solid #0e0e2d;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.book-now-btn:hover {
+    background-color: transparent;
+    color: #0e0e2d;
+}
+
+/*-----footer section-----*/
+
+footer {
+    background-image: linear-gradient(to right, #0e0e2d, #1b1b63);
+    color: beige;
+    padding: 20px 0;
+    margin-top: 60px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-left,
+.footer-right {
+    width: 45%;
+}
+
+.footer-left p,
+.footer-right p {
+    margin: 0;
+    font-size: 22px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.footer-image img {
+    max-width: 30px;
+    max-height: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/*----Media query for smaller screen devices----*/
+@media screen and (max-width: 768px) {
+    .navbar-title {
+        font-size: 25px;
+    }
+
+    .mechanic-girl-icon img {
+        max-width: 70px;
+    }
+
+    .footer-left p,
+    .footer-right p {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .mecha-img {
+        max-width: 100%;
+        height: auto;
+    }
+}
