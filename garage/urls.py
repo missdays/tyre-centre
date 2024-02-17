@@ -22,5 +22,5 @@ from mainpage.views import my_mainpage
 urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
-    path('mainpage/', my_mainpage, name='mainpage'),
+    path('', my_mainpage, name='mainpage'),
 ]
