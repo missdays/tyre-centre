@@ -179,6 +179,10 @@ footer {
     padding-right: 5px;
 }
 
+.login-section {
+    padding: 15px;
+}
+
 /*----Media query for smaller screen devices----*/
 @media screen and (max-width: 768px) {
     .navbar-title {
