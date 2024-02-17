@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 # Create your views here.
 def my_mainpage(request):
-    return HttpResponse("Hello, Blog!")
+    return render(request, 'mainpage/index.html')
