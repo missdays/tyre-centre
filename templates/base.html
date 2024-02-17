@@ -2,6 +2,7 @@
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
+{% load i18n %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,6 +61,12 @@
             </div>
         </nav>
     </section>
+
+    {% for message in messages %}
+    <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+        {{ message | safe }}
+    </div>
+    {% endfor %}
 
     <main class="flex-shrink-0 main-bg">
         {% block content %}

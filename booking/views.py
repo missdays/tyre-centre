@@ -1,9 +1,20 @@
-from django.shortcuts import render
-from .models import Booking
-
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .forms import BookingForm
 
 # Create your views here.
 
-def my_booking(request):
-    booking = Booking.objects.all()
-    return render(request, 'booking/booking.html', {"booking": booking})
+def create_booking(request):
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Booking request received! Await confirmation'
+            )
+            form = BookingForm()
+    else:
+        form = BookingForm()
+    
+    return render(request, 'booking/booking.html', {'form': form})
