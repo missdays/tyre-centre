@@ -1,41 +1,46 @@
-{% extends "base.html" %} {% block content %}
+{% extends "base.html" %} 
+{% block content %}
 {% load static %}
 
 <section id="booking-form">
-    <div class="container">
+    <div class="container-fluid booking-area">
         <h1>My Bookings</h1>
         <a href="{% url 'create_booking'%}" class="btn btn-success">New Booking</a>
-        <div class="table-responsive">
-            <table class="table booking-table">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Observation</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for booking in user_bookings %}
-                    <tr>
-                        <td>{{ booking.booking_date_and_time }}</td>
-                        <td>{{ booking.status }}</td>
-                        <td>{{ booking.observation }}</td>
-                        <td class="actions">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Actions
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="{% url 'booking_edit' booking.id %}">Edit</a></li>
-                                    <li><a class="dropdown-item" href="{% url 'booking_delete' booking.id %}">Delete</a></li>
-                                </ul>
-                            </div>                            
-                        </td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table booking-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Observation</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for booking in user_bookings %}
+                            <tr>
+                                <td>{{ booking.booking_date_and_time }}</td>
+                                <td>{{ booking.status }}</td>
+                                <td>{{ booking.observation }}</td>
+                                <td class="actions">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Actions
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="{% url 'booking_edit' booking.id %}">Edit</a></li>
+                                            <li><a class="dropdown-item" href="{% url 'booking_delete' booking.id %}">Delete</a></li>
+                                        </ul>
+                                    </div>                            
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 </section>

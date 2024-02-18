@@ -149,6 +149,9 @@ footer {
     color: beige;
     padding: 20px 0;
     margin-top: 60px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .footer-container {
@@ -222,6 +225,10 @@ footer {
 @keyframes fadeOut {
     0% { opacity: 1; }
     100% { opacity: 0; }
+}
+
+.booking-area{
+    min-height: 500px;
 }
 
 /*----Media query for smaller screen devices----*/
