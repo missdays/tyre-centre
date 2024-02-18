@@ -7,10 +7,15 @@ from .models import Booking
 
 # Create your views here.
 
+
 @login_required
 def bookings(request):
     user_bookings = Booking.objects.filter(user=request.user)
-    return render(request, 'booking/booking.html', {'user_bookings': user_bookings})
+    return render(
+        request,
+        'booking/booking.html',
+        {'user_bookings': user_bookings})
+
 
 @login_required
 def create_booking(request):
@@ -29,27 +34,33 @@ def create_booking(request):
         form = BookingForm(initial={'user': request.user})
         form.fields['user'].widget = forms.HiddenInput()
         form.fields['status'].widget = forms.HiddenInput()
-    
+
     return render(request, 'booking/create_booking.html', {'form': form})
+
 
 @login_required
 def delete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
 
     if booking.status in ['Cancelled', 'Confirmed']:
-        messages.error(request, "Cannot delete a cancelled or confirmed booking.")
+        messages.error(
+            request,
+            "Cannot delete a cancelled or confirmed booking.")
         return redirect('booking')
 
     booking.delete()
     messages.success(request, "Booking deleted successfully.")
     return redirect('booking')
 
+
 @login_required
 def edit_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
 
     if booking.status in ['Cancelled', 'Confirmed']:
-        messages.error(request, "Cannot edit a cancelled or confirmed booking.")
+        messages.error(
+            request,
+            "Cannot edit a cancelled or confirmed booking.")
         return redirect('booking')
 
     if request.method == 'POST':
@@ -68,4 +79,7 @@ def edit_booking(request, booking_id):
         form.fields['user'].widget = forms.HiddenInput()
         form.fields['status'].widget = forms.HiddenInput()
 
-    return render(request, 'booking/create_booking.html', {'form': form, 'booking_id': booking_id})
+    return render(
+        request,
+        'booking/create_booking.html',
+        {'form': form, 'booking_id': booking_id})
