@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block content %}
+{% load static %}
+
+<section id="booking-form">
+    <div class="container">
+        <h1>Book Appointment</h1>
+        <form method="post">
+            {% csrf_token %}
+            <span>User: {{user}}</span>
+            {{ form.as_p }}
+
+            <button type="submit" class="book-now-btn">Book Appointment</button>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

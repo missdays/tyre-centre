@@ -1,9 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django import forms
 from .forms import BookingForm
+from .models import Booking
 
 # Create your views here.
+def bookings(request):
+    user_bookings = Booking.objects.filter(user=request.user)
+    return render(request, 'booking/booking.html', {'user_bookings': user_bookings})
 
 def create_booking(request):
     if request.method == 'POST':
@@ -24,4 +28,9 @@ def create_booking(request):
         form.fields['user'].widget = forms.HiddenInput()
         form.fields['status'].widget = forms.HiddenInput()
     
-    return render(request, 'booking/booking.html', {'form': form})
+    return render(request, 'booking/create_booking.html', {'form': form})
+
+def delete_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    booking.delete()
+    return redirect('booking')
