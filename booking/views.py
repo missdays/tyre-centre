@@ -35,6 +35,11 @@ def create_booking(request):
 @login_required
 def delete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
+
+    if booking.status in ['Cancelled', 'Confirmed']:
+        messages.error(request, "Cannot delete a cancelled or confirmed booking.")
+        return redirect('booking')
+
     booking.delete()
     messages.success(request, "Booking deleted successfully.")
     return redirect('booking')
@@ -42,6 +47,11 @@ def delete_booking(request, booking_id):
 @login_required
 def edit_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
+
+    if booking.status in ['Cancelled', 'Confirmed']:
+        messages.error(request, "Cannot edit a cancelled or confirmed booking.")
+        return redirect('booking')
+
     if request.method == 'POST':
         form = BookingForm(request.POST, instance=booking)
         if form.is_valid():
