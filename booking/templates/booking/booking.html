@@ -4,9 +4,9 @@
 <section id="booking-form">
     <div class="container">
         <h1>Book Appointment</h1>
-        <h2>Welcome {{user}}</h2>
         <form method="post">
             {% csrf_token %}
+            <span>User: {{user}}</span>
             {{ form.as_p }}
 
             <button type="submit" class="book-now-btn">Book Appointment</button>
