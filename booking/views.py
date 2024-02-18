@@ -33,4 +33,12 @@ def create_booking(request):
 def delete_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
     booking.delete()
+    messages.success(request, "Booking deleted successfully.")
     return redirect('booking')
+
+def edit_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    form = BookingForm(instance=booking)
+    form.fields['user'].widget = forms.HiddenInput()
+    form.fields['status'].widget.attrs['disabled'] = True
+    return render(request, 'booking/create_booking.html', {'form': form, 'booking_id': booking_id})
