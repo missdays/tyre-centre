@@ -45,7 +45,7 @@ The project is built using the following technologies:
 - **Templates:**
   - `templates`: Contains base.html template.
 
-[Image Link: Project Structure](image_url_here)
+![Image Link: Project Structure](images/Project-Structure.png)
 
 ## Installation
 
@@ -113,7 +113,7 @@ I have manually tested this website project to ensure smooth user experience and
 - Ensured consistency in design elements and layout across different browsers and screen sizes.
 - Cross-checked the website's appearance and functionality on both desktop and mobile devices to ensure responsiveness.
 - Reviewed the console for any JavaScript errors.
-- Ran the website through a code validator to ensure compliance with HTML, CSS, and JavaScript standards.
+- Ran the website through a code validator to ensure compliance with Python standards.
 - Verified the functionality of interactive elements such as buttons, links, and dropdown menus.
 - Checked the behavior of dynamic content and data retrieval from the backend.
 - Tested the website's security measures such as HTTPS implementation and protection against common vulnerabilities like XSS and CSRF.
@@ -125,7 +125,9 @@ I have manually tested this website project to ensure smooth user experience and
 
 By conducting these manual tests, I aimed to ensure the overall quality, reliability, and user experience of the website across different usage scenarios and environments.
 
-[Image Link: Manual Testing](image_url_here)
+![Image Link: Form](images/validator-form.png)
+![Image Link: Models](images/validator-models.png)
+![Image Link: View](images/validator-view.png)
 
 ## Deployment to Heroku
 
@@ -158,7 +160,7 @@ To deploy your project to Heroku, follow these steps:
 6. **View your deployed project:**
    - Once the deployment process is complete, click on "Open app" to view your deployed project.
 
-[Image Link: Deploy to Heroku ](image_url_here)
+![Image Link: Deploy to Heroku ](images/deployment.png)
 
 ## User Stories
 
@@ -182,7 +184,7 @@ To deploy your project to Heroku, follow these steps:
 - **I can** assign tasks to team members.
 - **I can** track progress and milestones.
 
-[Image Link: Stories ](image_url_here)
+![Image Link: Stories ](image_url_here)
 
 ## Future Features
 - Set calendar to working hours
@@ -197,7 +199,9 @@ To deploy your project to Heroku, follow these steps:
     - Address the issue where users are able to book multiple appointments for the same time slot, which can lead to scheduling conflicts and confusion.
 
 ## Difficulties encountered 
-- [Image Link: Installation](image_url_here)
+- I encountered a problem while trying to run `pip3 install dj-database-url~=0.5 psycopg2~=2.9`
+- I managed to get the packages installed successfully by running the following command: `pip3 install dj-database-url~=0.5 psycopg2-binary~=2.9` as suggested in the error message and CI.
+- ![Image Link: Installation](images/error.png)
 
 ## Credits
 - Source of mechanic girl icon: FLATICON by kerismaker
