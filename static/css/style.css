@@ -189,6 +189,7 @@ footer {
 .booking-table {
     width: 100%;
     border-collapse: collapse;
+    min-height: 500px;
 }
 .booking-table th, td {
     padding: 12px 15px;
