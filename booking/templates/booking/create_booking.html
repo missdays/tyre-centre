@@ -3,13 +3,15 @@
 
 <section id="booking-form">
     <div class="container">
-        <h1>Book Appointment</h1>
+        <a href="{% url 'booking' %}">Return to Booking List</a>
+
+        <h1>{% block heading %}{% if booking_id %}Edit{% else %}Create{% endif %} Booking{% endblock %}</h1>
         <form method="post">
             {% csrf_token %}
             <span>User: {{user}}</span>
             {{ form.as_p }}
 
-            <button type="submit" class="book-now-btn">Book Appointment</button>
+            <button type="submit" class="btn btn-primary">{% if booking_id %}Update Appointment{% else %}Book Appointment{% endif %}</button>
         </form>
     </div>
 </section>

@@ -18,11 +18,9 @@ def create_booking(request):
             booking.save()
             messages.add_message(
                 request, messages.SUCCESS,
-                'Booking request received! Await confirmation'
+                'Booking request received! Await confirmation.'
             )
-            form = BookingForm(initial={'user': request.user})
-            form.fields['user'].widget = forms.HiddenInput()
-            form.fields['status'].widget = forms.HiddenInput()
+            return redirect('booking')
     else:
         form = BookingForm(initial={'user': request.user})
         form.fields['user'].widget = forms.HiddenInput()
@@ -38,7 +36,20 @@ def delete_booking(request, booking_id):
 
 def edit_booking(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
-    form = BookingForm(instance=booking)
-    form.fields['user'].widget = forms.HiddenInput()
-    form.fields['status'].widget.attrs['disabled'] = True
+    if request.method == 'POST':
+        form = BookingForm(request.POST, instance=booking)
+        if form.is_valid():
+            booking = form.save(commit=False)
+            booking.user = request.user
+            booking.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Booking updated! Await confirmation.'
+            )
+            return redirect('booking')
+    else:
+        form = BookingForm(instance=booking)
+        form.fields['user'].widget = forms.HiddenInput()
+        form.fields['status'].widget = forms.HiddenInput()
+
     return render(request, 'booking/create_booking.html', {'form': form, 'booking_id': booking_id})
