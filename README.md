@@ -85,6 +85,8 @@ In the website, users are able to perform the following actions:
   - View the observation field associated with their booking.
   - Take action on their bookings using two action buttons: edit and delete.
 
+![Image Link: Dashboard](images/dashboard.png)
+![Image Link: Form](images/form.png)
 
 ## Manual Testing
 
@@ -184,7 +186,7 @@ To deploy your project to Heroku, follow these steps:
 - **I can** assign tasks to team members.
 - **I can** track progress and milestones.
 
-![Image Link: Stories ](image_url_here)
+![Image Link: Stories ](images/user-stories.png)
 
 ## Future Features
 - Set calendar to working hours
@@ -193,6 +195,7 @@ To deploy your project to Heroku, follow these steps:
     - Enhance the booking system to prevent users from booking multiple appointments for the same time slot, ensuring a fair scheduling system and avoiding conflicts.
 - Ask confirmation before deleting a booking
     - Implement a confirmation prompt when users attempt to delete their booking, ensuring that they confirm their action before the booking is permanently removed.
+- Activate Remember Me and forgot password functionalities in Sign In page
 
 ## Bugs
 - User can book multiple appointments for the same time slot
