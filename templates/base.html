@@ -63,10 +63,11 @@
     </section>
 
     {% for message in messages %}
-    <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-        {{ message | safe }}
+    <div class="notification {% if message.tags == 'error' %}notification-error{% elif message.tags == 'success' %}notification-success{% endif %}">
+        <span class="notification-message">{{ message | safe }}</span>
     </div>
     {% endfor %}
+
 
     <main class="flex-shrink-0 main-bg">
         {% block content %}
@@ -87,7 +88,7 @@
             </div>
         </div>
     </footer>
-    <script src="scripts.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 
 </html>

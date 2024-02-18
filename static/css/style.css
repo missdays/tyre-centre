@@ -199,6 +199,31 @@ footer {
     background-color: #f5f5f5;
 }
 
+.notification {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    animation: fadeOut 4s ease-in-out;
+}
+
+.notification-success {
+    background-color: #dff0d8;
+    border-color: #d0e9c6;
+    color: #3c763d;
+}
+
+.notification-error {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
 /*----Media query for smaller screen devices----*/
 @media screen and (max-width: 768px) {
     .navbar-title {
